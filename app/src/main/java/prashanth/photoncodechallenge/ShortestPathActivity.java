@@ -56,6 +56,9 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
                     displayResults(mShortestPathService.compute(graph));
                 } catch (Exception e) {
                     errorField.setVisibility(View.VISIBLE);
+                    pathCompletedView.setText("");
+                    totalCost.setText("");
+                    finalPath.setText("");
                     errorField.setText(e.getMessage());
                 }
                 break;
