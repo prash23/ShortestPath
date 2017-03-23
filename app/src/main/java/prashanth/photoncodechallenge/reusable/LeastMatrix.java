@@ -1,5 +1,7 @@
 package prashanth.photoncodechallenge.reusable;
 
+import android.util.Log;
+
 import java.util.List;
 
 /**
@@ -21,7 +23,6 @@ public class LeastMatrix {
     public MatrixTuple getNextSuccessive(MatrixTuple matrixTuple) {
         if (matrixTuple.getPosX() + 1 > leastValueMatrix.get(matrixTuple.getPosY() - 1).size())
             return null;
-
         return new MatrixTuple(matrixTuple.getPosX() + 1, matrixTuple.getPosY());
     }
 

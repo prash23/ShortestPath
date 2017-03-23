@@ -52,7 +52,7 @@ public class ShortestPath {
     }
     /**
      * Find the shortest path
-     * @param leastMatrix inputmatrix
+     * @param leastMatrix input matrix
      * @param matrixTuple current cell
      * @param path list of paths
      * @return smallestInteger

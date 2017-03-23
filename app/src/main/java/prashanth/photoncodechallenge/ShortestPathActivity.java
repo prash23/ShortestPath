@@ -99,6 +99,10 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
                 if (minRowSize == 0)
                     minRowSize = stringList.size();
 
+                if (minRowSize > 10)
+                {
+                    throw new Exception("Limit for a row is 10 digits");
+                }
                 if (stringList.size() != minRowSize) {
                     throw new Exception("Rows must be same Size");
                 }

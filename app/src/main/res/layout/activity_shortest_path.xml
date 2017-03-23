@@ -34,8 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            android:layout_weight="40"
             android:ems="10"
+            android:maxLength="361"
             android:layout_marginTop="25dp"
             android:inputType="textMultiLine" />
 
