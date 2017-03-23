@@ -94,7 +94,7 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
 
             int minRowSize = 0;
             for (int x = 0; x < singleRowAsString.size(); x++) {
-                List<String> stringList = Arrays.asList(singleRowAsString.get(x).split(" "));
+                List<String> stringList = Arrays.asList(singleRowAsString.get(x).split(" +"));
 
                 if (minRowSize == 0)
                     minRowSize = stringList.size();
