@@ -24,8 +24,13 @@ public class ShortestPathService {
      * @param leastMatrix input matrix
      * @return output Output
      */
-    public LeastMatrix.Output compute(LeastMatrix leastMatrix) {
+    public LeastMatrix.Output compute(LeastMatrix leastMatrix) throws Exception {
         List<SmallestInteger> integers = shortPath.findPath(leastMatrix);
+        if(integers == null)
+        {
+            throw new Exception("Total cost exceeds 50");
+
+        }
 
         return new LeastMatrix.Output(integers.size() == leastMatrix.getWidth(), pathValue(integers), appendToRow(integers));
     }

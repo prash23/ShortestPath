@@ -52,13 +52,13 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
             case R.id.submitBtn:
                 try {
                     errorField.setVisibility(View.GONE);
+                    pathCompletedView.setVisibility(View.GONE);
+                    totalCost.setVisibility(View.GONE);
+                    finalPath.setVisibility(View.GONE);
                     LeastMatrix graph = parseInput.parseInput(userInput.getText().toString());
                     displayResults(mShortestPathService.compute(graph));
                 } catch (Exception e) {
                     errorField.setVisibility(View.VISIBLE);
-                    pathCompletedView.setText("");
-                    totalCost.setText("");
-                    finalPath.setText("");
                     errorField.setText(e.getMessage());
                 }
                 break;
@@ -80,6 +80,9 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void displayResults(LeastMatrix.Output output) {
+        pathCompletedView.setVisibility(View.VISIBLE);
+        totalCost.setVisibility(View.VISIBLE);
+        finalPath.setVisibility(View.VISIBLE);
         pathCompletedView.setText(output.isFinished() ? "Yes" : "No");
         totalCost.setText(format("%d",output.getCostOfPath()));
         finalPath.setText(pathConversation(output.getPathList()));
@@ -101,7 +104,7 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
 
                 if (minRowSize > 10)
                 {
-                    throw new Exception("Limit for a row is 10 digits");
+                    throw new Exception("Limit for a row is 10 values");
                 }
                 if (stringList.size() != minRowSize) {
                     throw new Exception("Rows must be same Size");
