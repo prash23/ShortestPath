@@ -33,7 +33,7 @@ public class ShortestPath {
         MatrixTuple matrixTuple;
         for (int i = 0; i < leastMatrix.getHeight(); i++) {
             matrixTuple=new MatrixTuple(1, i + 1);
-            if(leastMatrix.getValue(matrixTuple)> maxValue) {
+            if(leastMatrix.getValue(matrixTuple)>maxValue || leastMatrix.getValue(matrixTuple) == 0) {
                 continue;
             }
             List<SmallestInteger> currentPath = findPath(leastMatrix, matrixTuple, new ArrayList<SmallestInteger>());

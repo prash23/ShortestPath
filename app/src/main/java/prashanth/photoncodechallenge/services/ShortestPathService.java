@@ -24,15 +24,17 @@ public class ShortestPathService {
      * @param leastMatrix input matrix
      * @return output Output
      */
-    public LeastMatrix.Output compute(LeastMatrix leastMatrix) throws Exception {
+    public LeastMatrix.Output compute(LeastMatrix leastMatrix) {
         List<SmallestInteger> integers = shortPath.findPath(leastMatrix);
         if(integers == null)
         {
-            throw new Exception("Total cost exceeds 50");
-
+            return new LeastMatrix.Output(false, 0, null);
+        }
+        else
+        {
+            return new LeastMatrix.Output(integers.size() == leastMatrix.getWidth(), pathValue(integers), appendToRow(integers));
         }
 
-        return new LeastMatrix.Output(integers.size() == leastMatrix.getWidth(), pathValue(integers), appendToRow(integers));
     }
 
     /**
@@ -42,10 +44,17 @@ public class ShortestPathService {
      */
     private List<Integer> appendToRow(List<SmallestInteger> smallestIntegers) {
         List<Integer> valuesInARow = new ArrayList<>();
-        for (int i = 0; i < smallestIntegers.size(); i++) {
-            valuesInARow.add(smallestIntegers.get(i).getMTuples().getPosY());
+        if (smallestIntegers == null)
+        {
+            return null;
         }
-        return valuesInARow;
+        else
+        {
+            for (int i = 0; i < smallestIntegers.size(); i++) {
+                valuesInARow.add(smallestIntegers.get(i).getMTuples().getPosY());
+            }
+            return valuesInARow;
+        }
     }
 
     /**

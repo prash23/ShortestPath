@@ -85,7 +85,14 @@ public class ShortestPathActivity extends AppCompatActivity implements View.OnCl
         finalPath.setVisibility(View.VISIBLE);
         pathCompletedView.setText(output.isFinished() ? "Yes" : "No");
         totalCost.setText(format("%d",output.getCostOfPath()));
-        finalPath.setText(pathConversation(output.getPathList()));
+        if (output.getPathList() == null)
+        {
+            finalPath.setText("[]");
+        }
+        else
+        {
+            finalPath.setText("["+pathConversation(output.getPathList())+"]");
+        }
     }
 
 

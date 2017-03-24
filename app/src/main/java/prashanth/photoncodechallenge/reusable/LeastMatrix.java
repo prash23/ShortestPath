@@ -97,7 +97,8 @@ public class LeastMatrix {
         private final int costOfPath;
         private final List<Integer> integerList;
 
-        public Output(boolean finished, int finalCost, List<Integer> finalPath) {
+        public
+        Output(boolean finished, int finalCost, List<Integer> finalPath) {
             this.finished = finished;
             this.costOfPath = finalCost;
             this.integerList = finalPath;
